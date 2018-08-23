@@ -1,4 +1,5 @@
 import java.awt.Color;
+import java.awt.Dimension;
 
 /**
  * Class BallDemo - provides a demonstration of the
@@ -29,9 +30,11 @@ public class BallDemo
      */
     public void bounce()
     {
-        int ground = 400;   // position of the ground line
-        int xStart = 50;    // x-start of the ground line
-        int xLimit = 550;   // x-limit of the ground line
+        Dimension canvasSize = new Dimension (myCanvas.getSize());
+
+        int ground = (canvasSize.height*7)/ 8;   // position of the ground line
+        int xStart = canvasSize.width     / 8;    // x-start of the ground line
+        int xLimit = (canvasSize.width*7) / 8;   // x-limit of the ground line
 
         myCanvas.setVisible(true);
 
@@ -61,3 +64,12 @@ public class BallDemo
     }
     
 }
+/*
+    public void drawFrame(){
+        int xPos = 20;
+        int yPos = 20;
+        Dimension canvasSize = new Dimension (myCanvas.getSize());
+        Rectangle rect = new Rectangle(xPos, yPos, canvasSize.width-(2*xPos), canvasSize.height-(2*yPos));
+        myCanvas.draw(rect);
+    }
+*/
